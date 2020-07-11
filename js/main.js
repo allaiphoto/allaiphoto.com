@@ -165,23 +165,22 @@ jQuery(document).ready(function($) {
 		    loop: false,
 				stagePadding: 0,
 		    margin: 20,
-		    autoplay: true,
 		    nav: true,
 				navText: ['<span class="icon-arrow_back">', '<span class="icon-arrow_forward">'],
 		    responsive:{
 	        600:{
 	        	margin: 20,
-	          items: 1
+	          items: 2
 	        },
 	        1000:{
 	        	margin: 20,
 	        	stagePadding: 0,
-	          items: 1
+	          items: 2
 	        },
 	        1200:{
 	        	margin: 20,
 	        	stagePadding: 0,
-	          items: 1
+	          items: 3
 	        }
 		    }
 			});
@@ -241,7 +240,10 @@ jQuery(document).ready(function($) {
 	    // Optional parameters
 	    // direction: 'horizontal',
 	    // loop: true,
-
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
 	    // If we need pagination
 	    pagination: {
 	      el: '.swiper-pagination',

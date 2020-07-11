@@ -35,12 +35,12 @@
 		color: $white;
 	}
 	h1 {
-		font-size: 1.5rem;
+		font-size: 30px;
 		font-weight: 900;
 		color: $white;
-		// line-height: 1.5;
+		line-height: 1.5;
 		@include media-breakpoint-up(md) {
-			font-size: 3rem;	
+			font-size: 50px;	
 		}
 	}
 	p {
@@ -780,140 +780,7 @@
 }
 
 #lightgallery {
-
-}
-
-.site-block-profile-pic {
-	margin-top: -100px;
-	position: relative;
-	z-index: 99;
-	text-align: center;
-	// left: 50%;
-	// margin-left: -100px;	margin-bottom: 30px;
-	// transform: translateX(-50%);
-	img {
-		border-radius: 50%;
-		max-width: 200px;
-		// border: 10px solid $white;
-	}	
-}
-
-.site-block-half {
-	box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
-	margin-bottom: 30px;
-	.image, .text {
-		width: 50%;
-		@include media-breakpoint-down(lg) {
-			width: 100%;
-		}
-	}
-	.image {
-		background-size: cover;
-		@include media-breakpoint-down(lg) {
-			height: 300px;
-		}
-	}
-	.text {
-		padding: 30px;
-		h3 {
-			font-size: 20px;
-			color: $black;
-		}
-	}
-}
-
-.image-gradient {
-	position: relative;
-	width: 100%;
-	display: block;
-	margin-bottom: 30px;
-	figure {
-		position: relative;
-		overflow: hidden;
-		&:before {
-			content: '';
-	    position: absolute;
-	    top: 0;
-	    right: 0;
-	    bottom: 0;
-	    left: 0;
-	    background: -moz-linear-gradient(top, transparent 0%, transparent 18%, rgba(0,0,0,0.8) 99%, rgba(0,0,0,0.8) 100%);
-	    background: -webkit-linear-gradient(top, transparent 0%, transparent 18%, rgba(0,0,0,0.8) 99%, rgba(0,0,0,0.8) 100%);
-	    background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0,0,0,0.8) 99%, rgba(0,0,0,0.8) 100%);
-	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 );
-	    z-index: 2;
-		}
-		img {
-			transition: .3s all ease;
-			transform: scale(1.0);
-			z-index: 1;
-		}
-	}
-	.text {
-		position: absolute;
-		top: 50%;
-		width: 100%;
-		transform: translateY(-50%);
-		text-align: center;
-		z-index: 3;
-		h3 {
-			font-size: 18px;
-			color: $white;
-			margin-bottom: 0;
-		}
-		span {
-			font-size: 12px;
-			letter-spacing: .1em;
-			text-transform: uppercase;
-			color: #ccc;
-		}
-	}
-	&:hover {
-		img {
-			transform: scale(1.05);
-		}
-	}
-}
-.site-block-testimonial {
-	position: relative;
-	background-attachment: fixed;
-	background-size: cover;
-	&:before {
-		position: absolute;
-		content: "";
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0,0,0,.3);
-		z-index: 1;
-	}
-	.block-13 {
-		position: relative;
-		z-index: 2;
-
-		.owl-prev, .owl-next {
-			position: relative;
-			display: inline-block;
-			padding: 20px;
-			font-size: 30px;
-			color: $white;
-			&.disabled {
-				opacity: .2;
-			}
-		}
-	}
-	.block-testimony {
-		margin: 0 auto;
-		max-width: 700px;
-		img {
-			margin: 0 auto 30px auto;
-			max-width: 100px;
-			border-radius: 50%;
-		}
-	}
-	p {
-		font-size: 1.2rem;
-		color: $white;
+	.item {
+		margin-bottom: 30px;
 	}
 }
