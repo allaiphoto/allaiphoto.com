@@ -17,5 +17,14 @@ layout: default
     </div>
 
     {{ content }}
+
+    <div class="row" id="lightgallery">
+      {% for image in page.images %}
+      {% capture src %}/images/albums/{{ page.title | downcase }}/{{ image }}{% endcapture %}
+      <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 item" data-aos="fade" data-src="{{ src }}">
+        <a href="#"><img src="{{ src | replace: '.', '_small.' }}" class="img-fluid"></a>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
