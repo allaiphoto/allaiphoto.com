@@ -1,10 +1,9 @@
 ---
 layout: default
-title: About me
+title: About
 permalink: /about
 ---
-
-<div class="" data-aos="fade">
+<div class=""  data-aos="fade">
   <div class="container-fluid">
 
     <div class="row justify-content-center">
