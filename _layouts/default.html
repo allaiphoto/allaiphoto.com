@@ -48,7 +48,9 @@
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                   <li><a href="/index">Home</a></li>
                   <li class="has-children">
-                    <a href="single.html">Albums</a>
+                    {% capture first_album %}{{ site.albums.first.url }}{% endcapture %}
+
+                    <a href="{{ first_album }}">Albums</a>
                     <ul class="dropdown">
                       {% for album in site.albums %}
                         <li><a href="{{ album.url }}">{{ album.title }}</a></li>
