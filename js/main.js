@@ -263,7 +263,7 @@ jQuery(document).ready(function($) {
 		  // direction: 'vertical',
 		  freeMode: true,
       // slidesPerView: 'auto',
-      spaceBetween: 30,
+      spaceBetween: 300,
       mousewheel: true,
       pagination: {
         el: '.swiper-pagination',
