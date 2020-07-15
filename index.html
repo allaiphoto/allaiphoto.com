@@ -9,7 +9,7 @@ layout: default
           <div class="image-wrap">
             <div class="image-info">
               <h2 class="mb-3">{{ album.title }}</h2>
-              <a href="{{ album.url }}" class="btn btn-outline-white py-2 px-4">{{ album.title }}</a>
+              <a href="{{ album.url }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
             </div>
             {% capture src %}/images/albums/{{ album.title | downcase }}/{{ album.thumbnail }}{% endcapture %}
             <img src="{{ src }}" alt="Image">
