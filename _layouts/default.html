@@ -48,23 +48,11 @@
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                   <li><a href="/index">Home</a></li>
                   <li class="has-children">
-                    <a href="single.html">Gallery</a>
+                    <a href="single.html">Albums</a>
                     <ul class="dropdown">
-                      <li><a href="#">Nature</a></li>
-                      <li><a href="#">Portrait</a></li>
-                      <li><a href="#">People</a></li>
-                      <li><a href="#">Architecture</a></li>
-                      <li><a href="#">Animals</a></li>
-                      <li><a href="#">Sports</a></li>
-                      <li><a href="#">Travel</a></li>
-                      <li class="has-children">
-                        <a href="#">Sub Menu</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Menu One</a></li>
-                          <li><a href="#">Menu Two</a></li>
-                          <li><a href="#">Menu Three</a></li>
-                        </ul>
-                      </li>
+                      {% for album in site.albums %}
+                        <li><a href="{{ album.url }}">{{ album.title }}</a></li>
+                      {% endfor %}
                     </ul>
                   </li>
                   <li><a href="services.html">Services</a></li>
