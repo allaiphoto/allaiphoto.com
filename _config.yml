@@ -33,11 +33,13 @@ url: "https://allaiphoto.com" # the base hostname & protocol for your site, e.g.
 collections:
   albums:
     output: true
-    permalink: /:collection/:title
+    permalink: /:title
+    order:
+      - family
+      - lifestyle
+      - maternity
 
 # Build settings
-plugins:
-  - jekyll-feed
 livereload: true
 
 # Exclude from processing.
