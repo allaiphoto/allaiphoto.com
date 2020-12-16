@@ -44,22 +44,23 @@
             </div>
             <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
               <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
-
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li><a href="/index">Home</a></li>
-                  <li class="has-children">
+                  <li class="{% if page.url == '/' %}active{% endif %}"><a href="/">Home</a></li>
+                  <li class="has-children {% if page.url contains 'albums' %}active{% endif %}">
                     {% capture first_album %}{{ site.albums.first.url }}{% endcapture %}
 
                     <a href="{{ first_album }}">Albums</a>
                     <ul class="dropdown">
                       {% for album in site.albums %}
-                        <li><a href="{{ album.url }}">{{ album.title }}</a></li>
+                        <li class="{% if page.url contains album.url %}active{% endif %}">
+                          <a href="{{ album.url }}">{{ album.title }}</a>
+                        </li>
                       {% endfor %}
                     </ul>
                   </li>
-                  <li><a href="/services">Services</a></li>
-                  <li class="active"><a href="/about">About</a></li>
-                  <li><a href="/contact">Contact</a></li>
+                  <li class="{% if page.url contains 'services' %}active{% endif %}"><a href="/services">Services</a></li>
+                  <li class="{% if page.url contains 'about' %}active{% endif %}"><a href="/about">About</a></li>
+                  <li class="{% if page.url contains 'contact' %}active{% endif %}"><a href="/contact">Contact</a></li>
                 </ul>
               </nav>
             </div>

@@ -15,12 +15,12 @@ jQuery(document).ready(function($) {
 	var gallery = function() {
 		$('[data-fancybox="gallery"]').fancybox({
 			loop: true,
+			protect: true,
 			buttons: [
 				"share",
 				"slideShow",
 				"fullScreen",
-				"download",
-				 "thumbs",
+				"thumbs",
 				"close"
 			]
 		});
