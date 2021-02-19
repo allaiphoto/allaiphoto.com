@@ -1159,3 +1159,7 @@ a {
 
 #lightgallery .item {
   margin-bottom: 30px; }
+
+.services ul {
+  padding-inline-start: 16px;
+}

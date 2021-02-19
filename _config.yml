@@ -38,6 +38,8 @@ collections:
       - family
       - lifestyle
       - maternity
+      - portrait
+      - romantic
 
 # Build settings
 livereload: true
