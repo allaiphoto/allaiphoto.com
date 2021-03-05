@@ -67,7 +67,11 @@ permalink: /contact
             <div class="mb-3 bg-white">
 
               <p class="mb-0 font-weight-bold">Phone</p>
-              <p class="mb-4"><a href="tel:{{site.phone}}">{{site.phone_label}}</a></p>
+              <p class="mb-4">
+                <script>
+                  document.write('<a href="tel:' + '+' + '{{site.phone | split: "6" | first}}' + '6' + '{{site.phone | split: "6" | last}}' + '">' + '{{site.phone_label | split: "6" | first}}' + '6' + '{{site.phone_label | split: "6" | last}}' + '</a>');
+                </script>
+              </p>
 
               <p class="mb-0 font-weight-bold">Email Address</p>
               <p class="mb-4">

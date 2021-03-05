@@ -82,7 +82,7 @@
                   </li>
                   <li>
                     <script>
-                      document.write('<a href="tel:' + '{{site.phone | split: "6" | first}}' + '6' + '{{site.phone | split: "6" | last}}' + '">' + '{{site.phone_label | split: "6" | first}}' + '6' + '{{site.phone_label | split: "6" | last}}' + '</a>');
+                      document.write('<a href="tel:' + '+' + '{{site.phone | split: "6" | first}}' + '6' + '{{site.phone | split: "6" | last}}' + '">' + '{{site.phone_label | split: "6" | first}}' + '6' + '{{site.phone_label | split: "6" | last}}' + '</a>');
                     </script>
                   </li>
                 </ul>
