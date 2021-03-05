@@ -43,7 +43,7 @@
             <div class="col-6 col-xl-2" data-aos="fade-down">
               <h1 class="mb-0"><a href="/index" class="text-black h2 mb-0">{{ site.title }}</a></h1>
             </div>
-            <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <div class="col-10 col-md-7 d-none d-xl-block" data-aos="fade-down">
               <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
                 <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                   <li class="{% if page.url == '/' %}active{% endif %}"><a href="/">Home</a></li>
@@ -66,11 +66,13 @@
               </nav>
             </div>
 
-            <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="col-6 col-xl-3 text-right" data-aos="fade-down">
               <div class="d-none d-xl-inline-block">
                 <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
                   <li>
-                    <a target="_blank" href="mailto:{{site.email}}" class="pl-0 pr-3"><span class="icon-envelope"></span></a>
+                    <script>
+                      document.write('<a target="_blank" href="mailto:' + '{{site.email | split: "@" | first}}' + '@' + '{{site.email | split: "@" | last}}' + '" class="pl-0 pr-3"><span class="icon-envelope"></span></a>');
+                    </script>
                   </li>
                   <li>
                     <a target="_blank" href="https://www.facebook.com/{{site.facebook}}" class="pl-3 pr-3"><span class="icon-facebook"></span></a>
@@ -79,7 +81,9 @@
                     <a target="_blank" href="https://instagram.com/{{site.instagram}}" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                   </li>
                   <li>
-                    <p class="mb-4"><a href="tel:{{site.phone}}">{{site.phone_label}}</a></p>
+                    <script>
+                      document.write('<a href="tel:' + '{{site.phone | split: "6" | first}}' + '6' + '{{site.phone | split: "6" | last}}' + '">' + '{{site.phone_label | split: "6" | first}}' + '6' + '{{site.phone_label | split: "6" | last}}' + '</a>');
+                    </script>
                   </li>
                 </ul>
               </div>

@@ -70,8 +70,12 @@ permalink: /contact
               <p class="mb-4"><a href="tel:{{site.phone}}">{{site.phone_label}}</a></p>
 
               <p class="mb-0 font-weight-bold">Email Address</p>
-              <p class="mb-4"><a href="mailto:{{site.email}}">{{ site.email }}</a></p>
-              
+              <p class="mb-4">
+                <script>
+                  document.write('<a href="mailto:' + '{{site.email | split: "@" | first}}' + '@' + '{{site.email | split: "@" | last}}' + '">' + '{{site.email | split: "@" | first}}' + '@' + '{{site.email | split: "@" | last}}' + '</a>');
+                </script>
+              </p>
+
               <p class="mb-0 font-weight-bold">Address</p>
               <p class="mb-4">San Francisco, California, USA</p>
 
