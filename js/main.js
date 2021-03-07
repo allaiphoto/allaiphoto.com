@@ -8,6 +8,8 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
+  sendMessage('.send-message', true);
+
 	FlexMasonry.init('.grid', {
     responsive: true,
     breakpointCols: {
@@ -215,3 +217,48 @@ jQuery(document).ready(function($) {
 	swiperSetting();
 
 });
+
+function sendMessage(selector, redirect) {
+  var $subscribeForm = $(selector + " form");
+
+  $subscribeForm.on('submit', function(event){
+    event.preventDefault();
+
+    $.ajax({
+      dataType: 'jsonp',
+      url: "https://getsimpleform.com/messages/ajax?form_api_token=93729f2309759618ce1ddbed743dae23",
+      data: $subscribeForm.serialize(),
+    }).done(function() {
+      doneMessage(redirect);
+    }).fail(function() {
+      failMessage();
+    });
+  });
+}
+
+function doneMessage(redirect) {
+  swal({
+    title: "Thank you",
+    text: "Thank you for your request. We will get back to you soon.",
+    timer: 5000,
+    showConfirmButton: true,
+    type: "success"
+  },
+  function(){
+    swal.close();
+
+    if(redirect) {
+      window.location = location.protocol + "//" + location.host;
+    }
+  });
+}
+
+function failMessage() {
+  swal({
+    title: "An error occurred, please try again later.",
+    text: "",
+    type: "error",
+    timer: 5000,
+    showConfirmButton: true
+  });
+}
