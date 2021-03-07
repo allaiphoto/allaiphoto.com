@@ -40,7 +40,6 @@ jQuery(document).ready(function($) {
 			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
 		});
 
-
 		setTimeout(function() {
 
 			var counter = 0;
