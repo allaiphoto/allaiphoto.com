@@ -100,11 +100,16 @@
       {{content}}
 
       <div class="footer py-4">
-        <div class="container-fluid text-center">
+        <div class="container-fluid text-center" style="font-size: 0.9rem">
+          {% if layout.copyright %}
+            <p class="col-12 col-sm-12 col-md-6 text-center mx-auto">
+              &copy; Alla Isakova and AllaIphoto, <script>document.write(new Date().getFullYear());</script>. Unauthorized use and/or duplication of this material without express and written permission from this blog’s author and/or owner is strictly prohibited. Excerpts and links may be used, provided that full and clear credit is given to Alla Isakova and AllaIPhoto with appropriate and specific direction to the original content.
+            </p>
+          {% endif %}
           <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>
       </div>
