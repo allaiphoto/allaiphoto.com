@@ -19,7 +19,7 @@ copyright: true
 
     {{ content }}
 
-    <div class="grid">
+    <div class="grid" data-aos="fade" data-aos-delay="500">
       {% for image in page.images %}
         {% capture src %}/images/albums/{{ page.title | downcase }}/{{ image }}{% endcapture %}
         <div class="px-1 py-1">
