@@ -62,6 +62,10 @@ jQuery(document).ready(function($) {
 
       });
 
+      if ( $('.has-children').hasClass('active') ) {
+        $('.has-children.active #collapseItem0').collapse('show');
+      }
+
     }, 1000);
 
     $('body').on('click', '.menu-collapse', function(e) {
