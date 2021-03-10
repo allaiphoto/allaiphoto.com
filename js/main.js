@@ -64,6 +64,17 @@ jQuery(document).ready(function($) {
 
     }, 1000);
 
+    $('body').on('click', '.menu-collapse', function(e) {
+      var $this = $(this);
+      if ( $this.closest('li').find('.collapse').hasClass('show') ) {
+        $this.removeClass('active');
+      } else {
+        $this.addClass('active');
+      }
+      e.preventDefault();
+
+    });
+
     $('body').on('click', '.arrow-collapse', function(e) {
       var $this = $(this);
       if ( $this.closest('li').find('.collapse').hasClass('show') ) {

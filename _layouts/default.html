@@ -63,7 +63,7 @@
                   <li class="has-children {% if page.url contains 'albums' %}active{% endif %}">
                     {% capture first_album %}{{ site.albums.first.url }}{% endcapture %}
 
-                    <a href="{{ first_album }}">Albums</a>
+                    <a class="menu-collapse" data-toggle="collapse" data-target="#collapseItem0" href="{{ first_album }}">Albums</a>
                     <ul class="dropdown">
                       {% for album in site.albums %}
                         <li class="{% if page.url contains album.url %}active{% endif %}">
