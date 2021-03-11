@@ -10,7 +10,7 @@ layout: default
 
       <div class="col-md-7">
         <div class="row mb-5">
-          <div class="col-12 ">
+          <div class="col-12">
             <h2 class="site-section-heading text-center">{{ page.title }}</h2>
           </div>
         </div>
@@ -23,7 +23,7 @@ layout: default
     {% for review in page.reviews %}
       <div class="row mb-2">
         <div class="col text-center">
-          <div class="fb-post" data-href="{{ review }}" data-width="750" data-show-text="true"></div>
+          <div class="fb-post" data-href="{{ review }}" data-width="750" data-show-text="true" data-lazy="true"></div>
         </div>
       </div>
     {% endfor %}
