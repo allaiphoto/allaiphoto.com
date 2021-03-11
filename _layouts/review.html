@@ -4,14 +4,28 @@ layout: default
 <div id="fb-root"></div>
 <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
 
-<div class="container-fluid" data-aos="fade">
-  {{ content }}
+<div class="site-section" data-aos="fade">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
 
-  {% for review in page.reviews %}
-    <div class="row mb-2">
-      <div class="col text-center">
-        <div class="fb-post" data-href="{{ review }}" data-width="750" data-show-text="true"></div>
+      <div class="col-md-7">
+        <div class="row mb-5">
+          <div class="col-12 ">
+            <h2 class="site-section-heading text-center">{{ page.title }}</h2>
+          </div>
+        </div>
       </div>
+
     </div>
-  {% endfor %}
+
+    {{ content }}
+
+    {% for review in page.reviews %}
+      <div class="row mb-2">
+        <div class="col text-center">
+          <div class="fb-post" data-href="{{ review }}" data-width="750" data-show-text="true"></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
