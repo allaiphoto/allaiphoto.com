@@ -36,12 +36,6 @@ collections:
   albums:
     output: true
     permalink: /albums/:title
-    order:
-      - family
-      - lifestyle
-      - maternity
-      - portrait
-      - romantic
 
 # Build settings
 livereload: true
