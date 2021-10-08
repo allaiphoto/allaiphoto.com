@@ -65,7 +65,8 @@
 
                     <a class="menu-collapse" data-toggle="collapse" data-target="#collapseItem0" href="{{ first_album }}">Albums</a>
                     <ul class="dropdown">
-                      {% for album in site.albums %}
+                      {% assign ordered_albums = site.albums | sort:"order_number" %}
+                      {% for album in ordered_albums %}
                         <li class="{% if page.url contains album.url %}active{% endif %}">
                           <a href="{{ album.url }}">{{ album.title }}</a>
                         </li>
