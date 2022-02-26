@@ -4,11 +4,35 @@
    once: true
  });
 
+var form = document.getElementById("contact-form");
+
+async function handleSubmit(event) {
+  event.preventDefault();
+
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      doneMessage(true);
+    } else {
+      failMessage();
+    }
+  }).catch(error => {
+    failMessage();
+  });
+}
+if (form) {
+  form.addEventListener("submit", handleSubmit);
+}
+
 jQuery(document).ready(function($) {
 
   "use strict";
-
-  sendMessage('.send-message', true);
 
   FlexMasonry.init('.grid', {
     responsive: true,
@@ -231,24 +255,6 @@ jQuery(document).ready(function($) {
   swiperSetting();
 
 });
-
-function sendMessage(selector, redirect) {
-  var $subscribeForm = $(selector + " form");
-
-  $subscribeForm.on('submit', function(event){
-    event.preventDefault();
-
-    $.ajax({
-      dataType: 'jsonp',
-      url: "https://getsimpleform.com/messages/ajax?form_api_token=93729f2309759618ce1ddbed743dae23",
-      data: $subscribeForm.serialize(),
-    }).done(function() {
-      doneMessage(redirect);
-    }).fail(function() {
-      failMessage();
-    });
-  });
-}
 
 function doneMessage(redirect) {
   swal({
