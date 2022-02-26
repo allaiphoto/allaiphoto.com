@@ -29,7 +29,7 @@ facebook: allaiphoto
 instagram: allaiphoto
 description: >- # this means to ignore newlines until "baseurl:"
   Hi, my name is Alla.
-  I enjoy creating pictures that make people happy. So if you live in San Diego or just traveling, we can capture the great moments of your and your family life.
+  I enjoy creating pictures that make people happy. So if you live in San Francisco and Bay Area or just traveling, we can capture the great moments of your and your family life.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://allaiphoto.com" # the base hostname & protocol for your site, e.g. http://example.com
 collections:
