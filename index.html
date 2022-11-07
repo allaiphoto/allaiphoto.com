@@ -13,7 +13,7 @@ layout: default
                 <h2 class="mb-3">{{ album.title }}</h2>
                 <a href="{{ album.url }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
               </div>
-              {% capture src %}/images/albums/{{ album.title | downcase }}/{{ album.thumbnail }}{% endcapture %}
+              {% capture src %}/images/albums/{{ album.slug | downcase }}/{{ album.thumbnail }}{% endcapture %}
               <img src="{{ src }}" alt="Image">
             </div>
           </div>
