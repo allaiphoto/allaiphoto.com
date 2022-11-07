@@ -150,65 +150,6 @@ jQuery(document).ready(function($) {
   };
   siteMenuClone();
 
-  var swiperSetting = function() {
-    var mySwiper = new Swiper ('.swiper-container', {
-      // Optional parameters
-      // direction: 'horizontal',
-      // loop: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      mousewheel: {
-        invert: false,
-        forceToAxis: true,
-        releaseOnEdges: true,
-      },
-
-      // direction: 'vertical',
-      freeMode: true,
-      // slidesPerView: 'auto',
-      spaceBetween: 300,
-      mousewheel: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-
-      // And if we need scrollbar
-      // scrollbar: {
-      //   el: '.swiper-scrollbar',
-      // },
-
-      slidesPerView: 3,
-      breakpoints: {
-        668: {
-          slidesPerView: 1
-        },
-        1024: {
-          slidesPerView: 2
-        }
-      },
-      // paginationClickable: false,
-      spaceBetween: 20,
-      // freeMode: true,
-      // grabCursor: true,
-      // mousewheelControl: true
-
-    })
-  }
-  swiperSetting();
-
 });
 
 function doneMessage(redirect) {
