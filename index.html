@@ -2,28 +2,23 @@
 layout: default
 ---
 <div class="container-fluid" data-aos="fade" data-aos-delay="300">
-  <div class="swiper-container images-carousel">
-    <div class="swiper-wrapper">
+  <div class="row">
+
       {% assign ordered_albums = site.albums | sort:"order_number" %}
       {% for album in ordered_albums %}
         {% if album.thumbnail %}
-          <div class="swiper-slide">
-            <div class="image-wrap">
+          <div class="col-lg-4">
+            <div class="image-wrap-2">
               <div class="image-info">
                 <h2 class="mb-3">{{ album.title }}</h2>
                 <a href="{{ album.url }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
               </div>
               {% capture src %}/images/albums/{{ album.slug | downcase }}/{{ album.thumbnail }}{% endcapture %}
-              <img src="{{ src }}" alt="Image">
+              <img src="{{ src }}" alt="Image" class="img-fluid">
             </div>
           </div>
         {% endif %}
       {% endfor %}
-    </div>
 
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
   </div>
 </div>
