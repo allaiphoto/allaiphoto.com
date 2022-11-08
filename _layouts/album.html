@@ -24,7 +24,7 @@ copyright: true
         {% capture src %}/images/albums/{{ page.slug | downcase }}/{{ image }}{% endcapture %}
         <div class="px-1 py-1">
           <a href="{{ src }}" data-fancybox="gallery">
-            <img src="{{ src | replace: '.', '_small.' }}" class="img-fluid">
+            <img src="{{ src | replace: '.', '_small.' }}{{ "now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}" class="img-fluid">
           </a>
         </div>
       {% endfor %}
