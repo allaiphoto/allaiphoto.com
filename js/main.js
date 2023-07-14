@@ -136,7 +136,7 @@ jQuery(document).ready(function($) {
 
     $(window).resize(function() {
       var $this = $(this),
-        w = $this.width();
+      w = $this.width();
 
       if ( w > 768 ) {
         if ( $('body').hasClass('offcanvas-menu') ) {
