@@ -2,7 +2,16 @@
 layout: default
 ---
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=502165271895841&autoLogAppEvents=1" nonce="zlmjjcn5"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '502165271895841',
+      xfbml            : true,
+      version          : 'v20.0'
+    });
+  };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 <div class="site-section" data-aos="fade">
   <div class="container-fluid">
