@@ -198,3 +198,21 @@ function failMessage() {
     showConfirmButton: true
   });
 }
+
+function pumpkinMessage() {
+  swal({
+    title: "Fall minis",
+    html: true,
+    text: '<a href="/contact"><img src="/images/pumpkin_ad.jpg" alt="Images" class="img-fluid" style="max-height: 400px"></a>',
+    confirmButtonText: "Book Now",
+    cancelButtonText: "Close",
+    showCancelButton: true
+  },
+  function(isConfirm){
+    if (isConfirm) {
+      window.location.href = "/contact";
+    } else {
+      swal.close();
+    }
+  });
+}
