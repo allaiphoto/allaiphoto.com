@@ -203,7 +203,7 @@ function pumpkinMessage() {
   swal({
     title: "Fall minis",
     html: true,
-    text: '<a href="/contact"><img src="/images/pumpkin_ad.jpg" alt="Images" class="img-fluid" style="max-height: 400px"></a>',
+    text: '<a href="/contact"><img src="/images/pumpkin_ad.jpg" alt="Images" class="img-fluid" style="max-height: 300px"></a>',
     confirmButtonText: "Book Now",
     cancelButtonText: "Close",
     showCancelButton: true
