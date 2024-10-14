@@ -173,47 +173,38 @@ jQuery(document).ready(function($) {
 });
 
 function doneMessage(redirect) {
-  swal({
+  Swal.fire({
     title: "Thank you",
     text: "Thank you for your request. We will get back to you soon.",
-    timer: 5000,
-    showConfirmButton: true,
-    type: "success"
-  },
-  function(){
-    swal.close();
-
-    if(redirect) {
+    icon: "success",
+    timer: 5000
+  }).then(() => {
+    // The swal closes automatically after the timer or when the button is clicked
+    if (redirect) {
       window.location = location.protocol + "//" + location.host;
     }
   });
 }
 
 function failMessage() {
-  swal({
+  Swal.fire({
     title: "An error occurred, please try again later.",
     text: "",
-    type: "error",
-    timer: 5000,
-    showConfirmButton: true
+    icon: "error",
+    timer: 5000
   });
 }
 
 function pumpkinMessage() {
-  swal({
-    title: "Fall minis",
-    html: true,
-    text: '<a href="/contact"><img src="/images/pumpkin_ad.jpg" alt="Images" class="img-fluid" style="max-height: 250px"></a>',
+  Swal.fire({
+    html: '<a href="/contact"><img src="/images/pumpkin_ad.jpg" alt="Images" class="img-fluid"></a>',
     allowOutsideClick: true,
-    confirmButtonText: "Book Now",
-    cancelButtonText: "Close",
-    showCancelButton: true
-  },
-  function(isConfirm){
-    if (isConfirm) {
-      window.location.href = "/contact";
-    } else {
-      swal.close();
+    showCancelButton: true, // Shows the cancel button
+    confirmButtonText: "Book Now", // Confirm button text
+    cancelButtonText: "Close", // Cancel button text
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "/contact"; // Redirect on confirm
     }
   });
 }
