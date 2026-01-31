@@ -1137,10 +1137,10 @@ a {
 
 .image-wrap-2 {
   display: block;
+  position: relative;
   overflow: hidden;
-  top: 0;
-  left: 0;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  text-decoration: none; }
   .image-wrap-2:before {
     position: absolute;
     content: "";

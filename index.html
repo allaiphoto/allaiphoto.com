@@ -9,14 +9,14 @@ pumpkin_ad: false
       {% for album in ordered_albums %}
         {% if album.thumbnail %}
           <div class="col-lg-4">
-            <div class="image-wrap-2">
+            <a href="{{ album.url }}" class="image-wrap-2">
               <div class="image-info">
                 <h2 class="mb-3">{{ album.title }}</h2>
-                <a href="{{ album.url }}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+                <span class="btn btn-outline-white py-2 px-4">More Photos</span>
               </div>
               {% capture src %}/images/albums/{{ album.slug | downcase }}/{{ album.thumbnail }}{% endcapture %}
               <img src="{{ src }}" alt="Image" class="img-fluid">
-            </div>
+            </a>
           </div>
         {% endif %}
       {% endfor %}
