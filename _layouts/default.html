@@ -3,10 +3,57 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Alla Isakova Photography in San Francisco and Bay Area">
-    <meta name="keywords" content="Alla Isakova Photography, San Francisco, Photographer, Bay Area, Maternity, Newborn, Photography, Baby, Family, Alla Isakova, AllaIPhoto, Walnut Creek, Concord, Pleasent Hill, Dublin, Danville, Alamo, East Bay">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Alla Isakova Photography in San Francisco and Bay Area - Professional maternity, newborn, family, and portrait photography{% endif %}">
+    <meta name="keywords" content="San Francisco photographer, Bay Area photography, professional photographer San Francisco, maternity photographer, newborn photography, family photographer, wedding photographer Bay Area, engagement photos, portrait photography, lifestyle photographer, children photographer, pregnancy photos, outdoor photography, natural light photographer, Walnut Creek photographer, Concord CA photographer, Pleasant Hill photography, Dublin CA photographer, Danville photographer, Alamo photographer, East Bay photographer, couples photography, headshots San Francisco, Alla Isakova, AllaIPhoto">
     <meta name="author" content="{{ site.author }}">
+    <meta name="robots" content="index, follow">
     <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Professional maternity, newborn, family, and portrait photography in San Francisco and Bay Area{% endif %}">
+    <meta property="og:image" content="{{ site.url }}/images/allaiphoto_avatar3.jpg">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta name="twitter:title" content="{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Professional maternity, newborn, family, and portrait photography in San Francisco and Bay Area{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/images/allaiphoto_avatar3.jpg">
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "{{ site.title }}",
+      "image": "{{ site.url }}/images/allaiphoto_avatar3.jpg",
+      "description": "Professional maternity, newborn, family, and portrait photography in San Francisco and Bay Area",
+      "url": "{{ site.url }}",
+      "telephone": "{{ site.phone_label }}",
+      "email": "{{ site.email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      },
+      "areaServed": ["San Francisco", "Bay Area", "Walnut Creek", "Concord", "Dublin", "Danville", "Alamo", "East Bay"],
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/{{ site.facebook }}",
+        "https://instagram.com/{{ site.instagram }}"
+      ]
+    }
+    </script>
 
     <link rel="shortcut icon" type="image/png" href="/images/favicon2-ai.png">
     <link rel="apple-touch-icon" href="/images/favicon2-ai.png">
@@ -16,7 +63,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="/css/aos.css">
-    <link rel="stylesheet" href="/css/style.css{{ "now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}">
+    <link rel="stylesheet" href="/css/style.css{{ " now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}">
     <link rel="stylesheet" href="//unpkg.com/flexmasonry/dist/flexmasonry.css">
 
     {% if jekyll.environment == 'production' %}
@@ -134,7 +181,7 @@
     <script src="//unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="/js/main.js{{ "now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}"></script>
+    <script src="/js/main.js{{ " now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}"></script>
     {% if page.pumpkin_ad %}
       <script>
         pumpkinMessage();
