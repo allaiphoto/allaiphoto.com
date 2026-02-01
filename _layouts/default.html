@@ -15,7 +15,7 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:title" content="{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}">
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Professional maternity, newborn, family, and portrait photography in San Francisco and Bay Area{% endif %}">
-    <meta property="og:image" content="{{ site.url }}/images/allaiphoto_avatar3.jpg">
+    <meta property="og:image" content="{{ site.url }}/images/og-image.jpg">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:locale" content="en_US">
     <!-- Twitter Card -->
@@ -23,14 +23,14 @@
     <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
     <meta name="twitter:title" content="{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}">
     <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Professional maternity, newborn, family, and portrait photography in San Francisco and Bay Area{% endif %}">
-    <meta name="twitter:image" content="{{ site.url }}/images/allaiphoto_avatar3.jpg">
+    <meta name="twitter:image" content="{{ site.url }}/images/og-image.jpg">
     <!-- Structured Data - LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "{{ site.title }}",
-      "image": "{{ site.url }}/images/allaiphoto_avatar3.jpg",
+      "image": "{{ site.url }}/images/og-image.jpg",
       "description": "Professional maternity, newborn, family, and portrait photography in San Francisco and Bay Area",
       "url": "{{ site.url }}",
       "telephone": "{{ site.phone_label }}",
@@ -63,7 +63,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="/css/aos.css">
-    <link rel="stylesheet" href="/css/style.css{{ " now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}">
+    <link rel="stylesheet" href="/css/style.css{{ "now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}">
     <link rel="stylesheet" href="//unpkg.com/flexmasonry/dist/flexmasonry.css">
 
     {% if jekyll.environment == 'production' %}
@@ -181,7 +181,7 @@
     <script src="//unpkg.com/flexmasonry/dist/flexmasonry.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="/js/main.js{{ " now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}"></script>
+    <script src="/js/main.js{{ "now" | date: "%Y%m%d%H%M%S" | prepend: "?" }}"></script>
     {% if page.pumpkin_ad %}
       <script>
         pumpkinMessage();
