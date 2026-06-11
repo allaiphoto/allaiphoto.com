@@ -77,6 +77,20 @@ jQuery(document).ready(function($) {
     }
   });
 
+  // Gallery images are lazy-loaded, so FlexMasonry's height calculation runs
+  // before they have dimensions; re-layout as each image finishes loading.
+  var refreshId = null;
+  document.querySelectorAll('.grid img').forEach(function(img) {
+    img.addEventListener('load', function() {
+      if (refreshId) {
+        window.cancelAnimationFrame(refreshId);
+      }
+      refreshId = window.requestAnimationFrame(function() {
+        FlexMasonry.refreshAll();
+      });
+    });
+  });
+
   var siteMenuClone = function() {
 
     $('.js-clone-nav').each(function() {
