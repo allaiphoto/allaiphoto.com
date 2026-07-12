@@ -2,7 +2,7 @@
 layout: default
 copyright: true
 ---
-<div class="site-section" data-aos="fade">
+<div class="site-section">
   <div class="container-fluid">
 
     <div class="row justify-content-center">
@@ -19,12 +19,12 @@ copyright: true
 
     {{ content }}
 
-    <div class="grid" data-aos="fade" data-aos-delay="500">
+    <div class="grid">
       {% for image in page.images %}
         {% capture src %}/images/albums/{{ page.slug | downcase }}/{{ image }}{% endcapture %}
         <div class="px-1 py-1">
           <a href="{{ src }}" data-fancybox="gallery">
-            <img src="{{ src | replace: '.', '_small.' }}" alt="{{ page.title }} photography by {{ site.author }} - San Francisco Bay Area" class="img-fluid" loading="lazy" decoding="async">
+            <img src="{{ src | replace: '.', '_small.' }}" alt="{{ page.title }} photography by {{ site.author }} - San Francisco Bay Area" class="img-fluid"{% if forloop.index > 5 %} loading="lazy" decoding="async"{% elsif forloop.first %} fetchpriority="high"{% endif %}>
           </a>
         </div>
       {% endfor %}

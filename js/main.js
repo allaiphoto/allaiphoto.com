@@ -1,9 +1,3 @@
- AOS.init({
-   duration: 500,
-   easing: 'slide',
-   once: true
- });
-
 var form = document.getElementById("contact-form");
 
 async function handleSubmit(event) {
@@ -30,7 +24,7 @@ if (form) {
   form.addEventListener("submit", handleSubmit);
 }
 
-Fancybox.bind('[data-fancybox="gallery"]', {
+if (typeof Fancybox !== 'undefined') Fancybox.bind('[data-fancybox="gallery"]', {
   // Your custom options
   Images: {
     protected: true
@@ -69,27 +63,29 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
-  FlexMasonry.init('.grid', {
-    responsive: true,
-    breakpointCols: {
-      'min-width: 1200px': 5,
-      'min-width: 600px': 3
-    }
-  });
-
-  // Gallery images are lazy-loaded, so FlexMasonry's height calculation runs
-  // before they have dimensions; re-layout as each image finishes loading.
-  var refreshId = null;
-  document.querySelectorAll('.grid img').forEach(function(img) {
-    img.addEventListener('load', function() {
-      if (refreshId) {
-        window.cancelAnimationFrame(refreshId);
+  if (typeof FlexMasonry !== 'undefined' && document.querySelector('.grid')) {
+    FlexMasonry.init('.grid', {
+      responsive: true,
+      breakpointCols: {
+        'min-width: 1200px': 5,
+        'min-width: 600px': 3
       }
-      refreshId = window.requestAnimationFrame(function() {
-        FlexMasonry.refreshAll();
+    });
+
+    // Gallery images are lazy-loaded, so FlexMasonry's height calculation runs
+    // before they have dimensions; re-layout as each image finishes loading.
+    var refreshId = null;
+    document.querySelectorAll('.grid img').forEach(function(img) {
+      img.addEventListener('load', function() {
+        if (refreshId) {
+          window.cancelAnimationFrame(refreshId);
+        }
+        refreshId = window.requestAnimationFrame(function() {
+          FlexMasonry.refreshAll();
+        });
       });
     });
-  });
+  }
 
   var siteMenuClone = function() {
 
@@ -186,7 +182,31 @@ jQuery(document).ready(function($) {
 
 });
 
+// Inline fallback so form feedback never depends on the SweetAlert2 CDN.
+function showFormStatus(ok, message) {
+  if (!form) return;
+  var el = document.getElementById("form-status");
+  if (!el) {
+    el = document.createElement("p");
+    el.id = "form-status";
+    el.setAttribute("role", "status");
+    form.appendChild(el);
+  }
+  el.className = ok ? "text-success mt-3" : "text-danger mt-3";
+  el.textContent = message;
+}
+
 function doneMessage(redirect) {
+  if (typeof gtag === "function") {
+    gtag("event", "generate_lead", { event_category: "contact_form" });
+  }
+  if (form) {
+    form.reset();
+  }
+  if (typeof Swal === "undefined") {
+    showFormStatus(true, "Thank you for your request. We will get back to you soon.");
+    return;
+  }
   Swal.fire({
     title: "Thank you",
     text: "Thank you for your request. We will get back to you soon.",
@@ -201,6 +221,10 @@ function doneMessage(redirect) {
 }
 
 function failMessage() {
+  if (typeof Swal === "undefined") {
+    showFormStatus(false, "An error occurred, please try again later.");
+    return;
+  }
   Swal.fire({
     title: "An error occurred, please try again later.",
     text: "",
@@ -210,6 +234,7 @@ function failMessage() {
 }
 
 function pumpkinMessage() {
+  if (typeof Swal === "undefined") return;
   Swal.fire({
     html: '<a href="/contact"><img src="/images/holiday_minis.jpg" alt="Images" class="img-fluid"></a>',
     allowOutsideClick: true,

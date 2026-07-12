@@ -21,7 +21,7 @@
 author: Alla Isakova
 title: AllaIPhoto
 email: isakovaaphoto@gmail.com
-phone: +14155624149
+phone: "+14155624149"
 phone_label: +1 415 562 4149
 timezone: "America/Los_Angeles"
 permalink: /:title
@@ -43,6 +43,13 @@ livereload: true
 # Plugins
 plugins:
   - jekyll-sitemap
+
+# Keep icon-font demo/license files out of sitemap.xml
+defaults:
+  - scope:
+      path: "fonts"
+    values:
+      sitemap: false
 
 # Image settings
 image_width: 2048

@@ -1,14 +1,20 @@
 ---
 layout: default
 pumpkin_ad: false
+seo_title: San Francisco Family & Maternity Photographer | AllaIPhoto
+description: >-
+  Family, maternity, newborn and portrait photography by Alla Isakova in San
+  Francisco and the Bay Area. Natural-light sessions, magazine-style retouching.
 ---
-<div class="container-fluid" data-aos="fade" data-aos-delay="300">
+<div class="container-fluid">
   <h1 class="sr-only">{{ site.title }} - Professional maternity, family, and portrait photography in San Francisco and Bay Area</h1>
   <div class="row">
 
       {% assign ordered_albums = site.albums | sort:"order_number" %}
+      {% assign shown = 0 %}
       {% for album in ordered_albums %}
         {% if album.thumbnail %}
+          {% assign shown = shown | plus: 1 %}
           <div class="col-lg-4">
             <a href="{{ album.url }}" class="image-wrap-2">
               <div class="image-info">
@@ -16,7 +22,7 @@ pumpkin_ad: false
                 <span class="btn btn-outline-white py-2 px-4">More Photos</span>
               </div>
               {% capture src %}/images/albums/{{ album.slug | downcase }}/{{ album.thumbnail }}{% endcapture %}
-              <img src="{{ src }}" alt="{{ album.title }} Photography - San Francisco Bay Area" class="img-fluid">
+              <img src="{{ src }}" alt="{% if album.title contains 'Photography' %}{{ album.title }}{% else %}{{ album.title }} Photography{% endif %} - San Francisco Bay Area" class="img-fluid" width="1365" height="1365"{% if shown > 3 %} loading="lazy" decoding="async"{% elsif shown == 1 %} fetchpriority="high"{% endif %}>
             </a>
           </div>
         {% endif %}

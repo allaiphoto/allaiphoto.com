@@ -1,10 +1,14 @@
 ---
 layout: default
 title: Contact me
+seo_title: Contact – Book a Photo Session in the Bay Area | AllaIPhoto
+description: >-
+  Book a family, maternity or portrait photo session in San Francisco and the
+  Bay Area. Contact photographer Alla Isakova by form, phone or email.
 permalink: /contact
 ---
 
-<div class="site-section" data-aos="fade">
+<div class="site-section">
   <div class="container-fluid">
 
     <div class="row justify-content-center">
@@ -62,16 +66,12 @@ permalink: /contact
 
               <p class="mb-0 font-weight-bold">Phone</p>
               <p class="mb-4">
-                <script>
-                  document.write('<a href="tel:' + '+' + '{{site.phone | split: "6" | first}}' + '6' + '{{site.phone | split: "6" | last}}' + '">' + '{{site.phone_label | split: "6" | first}}' + '6' + '{{site.phone_label | split: "6" | last}}' + '</a>');
-                </script>
+                <a href="tel:{{ site.phone }}">{{ site.phone_label }}</a>
               </p>
 
               <p class="mb-0 font-weight-bold">Email Address</p>
               <p class="mb-4">
-                <script>
-                  document.write('<a href="mailto:' + '{{site.email | split: "@" | first}}' + '@' + '{{site.email | split: "@" | last}}' + '">' + '{{site.email | split: "@" | first}}' + '@' + '{{site.email | split: "@" | last}}' + '</a>');
-                </script>
+                <a href="mailto:{{ site.email }}">{{ site.email }}</a>
               </p>
 
               <p class="mb-0 font-weight-bold">Address</p>
