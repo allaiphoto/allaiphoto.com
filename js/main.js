@@ -1,7 +1,19 @@
 var form = document.getElementById("contact-form");
 
+function setFormSubmitting(submitting) {
+  form.dataset.submitting = submitting ? "true" : "false";
+  var submitButton = form.querySelector('[type="submit"]');
+  if (submitButton) {
+    submitButton.disabled = submitting;
+  }
+}
+
 async function handleSubmit(event) {
   event.preventDefault();
+  if (form.dataset.submitting === "true") {
+    return;
+  }
+  setFormSubmitting(true);
 
   var data = new FormData(event.target);
   fetch(event.target.action, {
@@ -12,11 +24,14 @@ async function handleSubmit(event) {
     }
   }).then(response => {
     if (response.ok) {
+      // Keep the button disabled: success resets the form and redirects.
       doneMessage(true);
     } else {
+      setFormSubmitting(false);
       failMessage();
     }
   }).catch(error => {
+    setFormSubmitting(false);
     failMessage();
   });
 }
@@ -59,33 +74,35 @@ if (typeof Fancybox !== 'undefined') Fancybox.bind('[data-fancybox="gallery"]', 
   }
 });
 
-jQuery(document).ready(function($) {
+// Gallery layout is independent of jQuery: main.js is deferred, so the DOM
+// is parsed and FlexMasonry (also deferred, earlier in order) is available.
+if (typeof FlexMasonry !== 'undefined' && document.querySelector('.grid')) {
+  FlexMasonry.init('.grid', {
+    responsive: true,
+    breakpointCols: {
+      'min-width: 1200px': 5,
+      'min-width: 600px': 3
+    }
+  });
 
-  "use strict";
-
-  if (typeof FlexMasonry !== 'undefined' && document.querySelector('.grid')) {
-    FlexMasonry.init('.grid', {
-      responsive: true,
-      breakpointCols: {
-        'min-width: 1200px': 5,
-        'min-width: 600px': 3
+  // Gallery images are lazy-loaded, so FlexMasonry's height calculation runs
+  // before they have dimensions; re-layout as each image finishes loading.
+  var refreshId = null;
+  document.querySelectorAll('.grid img').forEach(function(img) {
+    img.addEventListener('load', function() {
+      if (refreshId) {
+        window.cancelAnimationFrame(refreshId);
       }
-    });
-
-    // Gallery images are lazy-loaded, so FlexMasonry's height calculation runs
-    // before they have dimensions; re-layout as each image finishes loading.
-    var refreshId = null;
-    document.querySelectorAll('.grid img').forEach(function(img) {
-      img.addEventListener('load', function() {
-        if (refreshId) {
-          window.cancelAnimationFrame(refreshId);
-        }
-        refreshId = window.requestAnimationFrame(function() {
-          FlexMasonry.refreshAll();
-        });
+      refreshId = window.requestAnimationFrame(function() {
+        FlexMasonry.refreshAll();
       });
     });
-  }
+  });
+}
+
+if (typeof jQuery !== 'undefined') jQuery(document).ready(function($) {
+
+  "use strict";
 
   var siteMenuClone = function() {
 
@@ -94,33 +111,29 @@ jQuery(document).ready(function($) {
       $this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
     });
 
-    setTimeout(function() {
+    var counter = 0;
+    $('.site-mobile-menu .has-children').each(function(){
+      var $this = $(this);
 
-      var counter = 0;
-      $('.site-mobile-menu .has-children').each(function(){
-        var $this = $(this);
+      $this.prepend('<span class="arrow-collapse collapsed">');
 
-        $this.prepend('<span class="arrow-collapse collapsed">');
-
-        $this.find('.arrow-collapse').attr({
-          'data-toggle' : 'collapse',
-          'data-target' : '#collapseItem' + counter,
-        });
-
-        $this.find('> ul').attr({
-          'class' : 'collapse',
-          'id' : 'collapseItem' + counter,
-        });
-
-        counter++;
-
+      $this.find('.arrow-collapse').attr({
+        'data-toggle' : 'collapse',
+        'data-target' : '#collapseItem' + counter,
       });
 
-      if ( $('.has-children').hasClass('active') ) {
-        $('.has-children.active #collapseItem0').collapse('show');
-      }
+      $this.find('> ul').attr({
+        'class' : 'collapse',
+        'id' : 'collapseItem' + counter,
+      });
 
-    }, 1000);
+      counter++;
+
+    });
+
+    if ( $('.has-children').hasClass('active') ) {
+      $('.has-children.active #collapseItem0').collapse('show');
+    }
 
     $('body').on('click', '.menu-collapse', function(e) {
       var $this = $(this);
@@ -148,7 +161,9 @@ jQuery(document).ready(function($) {
       var $this = $(this),
       w = $this.width();
 
-      if ( w > 768 ) {
+      // The offcanvas menu is the only nav below the xl breakpoint (1200px),
+      // so only auto-close it once the desktop nav is actually visible.
+      if ( w >= 1200 ) {
         if ( $('body').hasClass('offcanvas-menu') ) {
           $('body').removeClass('offcanvas-menu');
         }
