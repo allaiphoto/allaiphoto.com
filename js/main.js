@@ -1,3 +1,9 @@
+// Footer year: rendered at build time by Liquid, refreshed here so it
+// stays current even if the site isn't redeployed for a while.
+document.querySelectorAll(".js-year").forEach(function (el) {
+  el.textContent = new Date().getFullYear();
+});
+
 var form = document.getElementById("contact-form");
 
 function setFormSubmitting(submitting) {
